@@ -4,7 +4,7 @@
 
 ## Bug report
 
-- @martin*hotell/tslint-config version: \_x.x.x* (<!-- (run `npm list @martin_hotell/tslint-config` from a terminal/cmd prompt): -->)
+- `@martin_hotell/tslint-config` version: _x.x.x_ (<!-- (run `npm list @martin_hotell/tslint-config` from a terminal/cmd prompt): -->)
 - Affected browsers (and versions): _IE 10_
 
 ### Current behaviour
