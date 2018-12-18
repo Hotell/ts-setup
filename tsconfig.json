@@ -16,13 +16,25 @@
     "stripInternal": true,
     "declaration": true,
     "declarationMap": true,
-    "declarationDir": "dist/types",
-    "outDir": "dist/esm5",
     "resolveJsonModule": true,
-    "importHelpers": true
+    "importHelpers": true,
+    "noEmit": true,
+    "composite": true,
+    "baseUrl": "./packages",
+    "paths": {
+    //   "@martin_hotell/*": [
+    //     "*/src"
+    //   ]
+    }
   },
-  "include": [
-    "./packages"
+  "references": [
+    {
+      "path": "./packages/ts-config",
+    },
+    {
+      "path": "./packages/ts-lint-config"
+    }
   ],
+  "include": ["packages/"],
   "compileOnSave": false
 }

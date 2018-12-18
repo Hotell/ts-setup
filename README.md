@@ -11,10 +11,14 @@
 
 ## Packages
 
-This monorepo contains following packages.
+This monorepo contains following packages 📦.
 
 - [@martin_hotell/ts-config](./packages/ts-config): Shared base tsconfig.json
-- [@martin_hotell/ts-lint-config](<(./packages/ts-lint-config)>): Shared tslint.json
+- [@martin_hotell/ts-lint-config](./packages/ts-lint-config): Shared tslint.json
+
+## TS coding style-guides
+
+> this style-guide consists mostly only rules, that can't be validate by TSLint
 
 ---
 

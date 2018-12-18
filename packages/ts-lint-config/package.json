@@ -15,6 +15,7 @@
   "typings": "./types/index.d.ts",
   "sideEffects": false,
   "publishConfig": {
+    "access": "public",
     "registry": "https://registry.yarnpkg.com"
   },
   "repository": {
@@ -22,7 +23,11 @@
     "url": "git+https://github.com/Hotell/ts-setup.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "build": "tsc --target es2018 --outDir ./dist/esm2015 && rollup -c ../../config/rollup.config.js --environment PKG_NAME:ts-lint-config && rollup -c ../../config/rollup.config.js --environment NODE_ENV:production,PKG_NAME:ts-lint-config",
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "size": "npm run size:umd && npm run size:fesm",
+    "size:umd": "shx echo \"Gzipped+minified UMD bundle Size:\" && cross-var strip-json-comments --no-whitespace \"./dist/bundles/index.umd.min.js\" | gzip-size",
+    "size:fesm": "shx echo \"Gzipped+minified FESM bundle Size:\" && strip-json-comments --no-whitespace \"./dist/bundles/index.esm.min.js\" | gzip-size"
   },
   "bugs": {
     "url": "https://github.com/Hotell/ts-setup/issues"

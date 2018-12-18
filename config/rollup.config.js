@@ -8,7 +8,6 @@ import { uglify } from 'rollup-plugin-uglify'
 import { terser } from 'rollup-plugin-terser'
 import { getIfUtils, removeEmpty } from 'webpack-config-utils'
 
-import pkg from '../package.json'
 const {
   pascalCase,
   normalizePackageName,
@@ -23,11 +22,22 @@ const {
  */
 
 const env = process.env.NODE_ENV || 'development'
+const pkgName = process.env.PKG_NAME
 const { ifProduction } = getIfUtils(env)
 
+if (!pkgName) {
+  throw new Error('PKG_NAME is required!')
+}
+
+const MONOREPO_ROOT = resolve(__dirname, '..')
+const PACKAGES_ROOT = resolve(MONOREPO_ROOT, 'packages')
+const PACKAGE_ROOT = resolve(PACKAGES_ROOT, pkgName)
+/** @type {typeof import('../package.json') & {peerDependencies?: object}} */
+const pkg = require(resolve(PACKAGE_ROOT, 'package.json'))
+
 const LIB_NAME = pascalCase(normalizePackageName(pkg.name))
-const ROOT = resolve(__dirname, '..')
-const DIST = resolve(ROOT, 'dist')
+
+const DIST = resolve(PACKAGE_ROOT, 'dist')
 
 /**
  * Object literals are open-ended for js checking, so we need to be explicit
