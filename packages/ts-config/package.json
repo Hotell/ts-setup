@@ -1,0 +1,30 @@
+{
+  "name": "@martin_hotell/ts-config",
+  "version": "1.0.0",
+  "description": "A base tsconfig for sane Typescript developer",
+  "keywords": [
+    "typescript",
+    "config"
+  ],
+  "author": "Martin Hochel <hochelmartin@gmail.com>",
+  "homepage": "https://github.com/Hotell/ts-setup#readme",
+  "license": "MIT",
+  "main": "./tsconfig.json",
+  "publishConfig": {
+    "registry": "https://registry.yarnpkg.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hotell/ts-setup.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/Hotell/ts-setup/issues"
+  },
+  "peerDependencies": {
+    "tslib": ">=1.9.0",
+    "typescript": ">=3.0.0"
+  }
+}

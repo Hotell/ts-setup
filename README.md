@@ -1,6 +1,6 @@
-# tslint-config
+# ts-setup
 
-> TsLint config done right
+> Shared TypeScript and TSLint configs for sane developer
 
 [![Build Status](https://travis-ci.org/hotell/tslint-config.svg?branch=master)](https://travis-ci.org/hotell/tslint-config)
 [![NPM version](https://img.shields.io/npm/v/@martin_hotell/tslint-config.svg)](https://www.npmjs.com/package/@martin_hotell/tslint-config)
@@ -9,35 +9,12 @@
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 
-## Installing
+## Packages
 
-```sh
-yarn add @martin_hotell/tslint-config
-```
+This monorepo contains following packages.
 
-## Getting started
-
-Let's demonstrate simple usage with ... example:
-
-```ts
-// your code example
-```
-
-## Examples
-
-Go checkout [examples](./examples) !
-
-## API
-
-> Document your API here
-
-## Guides
-
-<details>
-<summary>How to do Foo</summary>
-
-Today we're gonna build Foo....
-</detail>
+- [@martin_hotell/ts-config](./packages/ts-config): Shared base tsconfig.json
+- [@martin_hotell/ts-lint-config](<(./packages/ts-lint-config)>): Shared tslint.json
 
 ---
 

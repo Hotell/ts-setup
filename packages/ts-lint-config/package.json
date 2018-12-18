@@ -1,0 +1,39 @@
+{
+  "name": "@martin_hotell/ts-lint-config",
+  "version": "1.0.0",
+  "description": "tslint config for sane TypeScript developer 💪",
+  "keywords": [
+    "tslint",
+    "style-guide"
+  ],
+  "author": "Martin Hochel <hochelmartin@gmail.com>",
+  "homepage": "https://github.com/Hotell/ts-setup#readme",
+  "license": "MIT",
+  "main": "./bundles/index.umd.js",
+  "module": "./esm5/index.js",
+  "es2015": "./esm2015/index.js",
+  "typings": "./types/index.d.ts",
+  "sideEffects": false,
+  "publishConfig": {
+    "registry": "https://registry.yarnpkg.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hotell/ts-setup.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/Hotell/ts-setup/issues"
+  },
+  "peerDependencies": {
+    "tslint": ">=5.11.0"
+  },
+  "dependencies": {
+    "tslint-config-prettier": "1.17.0",
+    "tslint-config-standard": "8.0.1",
+    "tslint-etc": "1.2.9",
+    "tslint-react": "3.6.0"
+  }
+}

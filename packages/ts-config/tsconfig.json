@@ -9,20 +9,16 @@
     ],
     "strict": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "react",
     "sourceMap": true,
     "stripInternal": true,
-    "declaration": true,
-    "declarationMap": true,
-    "declarationDir": "dist/types",
-    "outDir": "dist/esm5",
+    "outDir": "tsc-out",
     "resolveJsonModule": true,
     "importHelpers": true
   },
   "include": [
-    "./packages"
+    "./src"
   ],
   "compileOnSave": false
 }
