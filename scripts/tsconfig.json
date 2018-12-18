@@ -3,6 +3,7 @@
   "compilerOptions": {},
   "include": [
     ".",
+    "../lerna.json",
     "../config/global.d.ts"
   ]
 }
