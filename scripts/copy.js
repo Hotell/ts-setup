@@ -7,6 +7,8 @@
 const { writeFileSync, copyFileSync, readdirSync } = require('fs')
 const { resolve } = require('path')
 
+const { log } = console
+
 const { packages } = require('../lerna.json')
 
 /**
@@ -17,6 +19,36 @@ const MONOREPO_ROOT = resolve(__dirname, '..')
 const PACKAGES_ROOT = resolve(MONOREPO_ROOT, 'packages')
 
 main()
+
+function main() {
+  const pkgNames = getPackages(packages)
+
+  pkgNames.forEach((pkgName) => {
+    processPackage(pkgName)
+  })
+}
+
+// =============================================================================
+// HELPERS
+// =============================================================================
+
+/**
+ *
+ * @param {string[]} packages
+ */
+function getPackages(packages) {
+  return packages.reduce(
+    (acc, pkgName) => {
+      const isGlob = pkgName.endsWith('*')
+      const pkgNames = isGlob
+        ? readdirSync(normalizeLernaGlob(pkgName))
+        : [pkgName]
+
+      return [...acc, ...pkgNames]
+    },
+    /** @type {string[]} */ ([])
+  )
+}
 
 /**
  *
@@ -29,70 +61,48 @@ function processPackage(pkgName) {
   const packageJson = require(resolve(PACKAGE_ROOT, 'package.json'))
   const distPackageJson = createDistPackageJson(packageJson)
 
-  copyFileSync(
-    resolve(PACKAGE_ROOT, 'README.md'),
-    resolve(distPath, 'README.md')
-  )
+  log('====================================')
+  log(`Preparing 📦  "${pkgName}" for publish:`)
 
   try {
-    copyFileSync(
-      resolve(PACKAGE_ROOT, 'CHANGELOG.md'),
-      resolve(distPath, 'CHANGELOG.md')
-    )
+    copy('README.md', { from: PACKAGE_ROOT, to: distPath })
   } catch (err) {
-    console.error('🚨 no CHANGELOG.md present... \n')
+    console.error('🚨 \tno README.md present...')
   }
 
   try {
-    copyFileSync(
-      resolve(PACKAGE_ROOT, 'LICENSE.md'),
-      resolve(distPath, 'LICENSE.md')
-    )
+    copy('CHANGELOG.md', { from: PACKAGE_ROOT, to: distPath })
   } catch (err) {
-    console.error('🚨 no LICENSE.md present... using root license \n')
-    copyFileSync(
-      resolve(MONOREPO_ROOT, 'LICENSE.md'),
-      resolve(distPath, 'LICENSE.md')
-    )
+    console.error('🚨 \tno CHANGELOG.md present...')
   }
 
   try {
-    copyFileSync(
-      resolve(PACKAGE_ROOT, '.npmignore'),
-      resolve(distPath, '.npmignore')
-    )
+    copy('LICENSE.md', { from: PACKAGE_ROOT, to: distPath })
   } catch (err) {
-    console.error('🚨 no .npmignore present... using root .npmignore \n')
-    copyFileSync(
-      resolve(MONOREPO_ROOT, '.npmignore'),
-      resolve(distPath, '.npmignore')
-    )
+    console.error('🚨 \tno LICENSE.md present... using root license')
+    copy('LICENSE.md', { from: MONOREPO_ROOT, to: distPath })
+  }
+
+  try {
+    copy('.npmignore', { from: PACKAGE_ROOT, to: distPath })
+  } catch (err) {
+    console.error('🚨 \tno .npmignore present... using root .npmignore')
+    copy('.npmignore', { from: MONOREPO_ROOT, to: distPath })
   }
 
   writeFileSync(resolve(distPath, 'package.json'), distPackageJson)
+
+  log('✅ \tFinished')
+  log('====================================')
 }
 
-function main() {
-  packages.forEach((pkgName) => {
-    const isGlob = pkgName.endsWith('*')
-    if (isGlob) {
-      const pkgNames = readdirSync(normalizeLernaGlob(pkgName)).map((file) => {
-        return file
-      })
-
-      console.log(
-        '\n preparing following packages for publish: \n',
-        pkgNames.map((pkgName) => `📦  ${pkgName}`).join('\n'),
-        '\n',
-        '====================================================',
-        '\n'
-      )
-
-      pkgNames.forEach((pkgName) => {
-        processPackage(pkgName)
-      })
-    }
-  })
+/**
+ *
+ * @param {string} filename
+ * @param {{from:string,to:string}} pathConfig
+ */
+function copy(filename, { from, to }) {
+  copyFileSync(resolve(from, filename), resolve(to, filename))
 }
 
 /**
