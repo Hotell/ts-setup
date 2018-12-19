@@ -2,7 +2,9 @@
   "name": "@martin_hotell/ts-setup",
   "version": "1.0.0",
   "private": true,
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "description": "TsLint/TS config done right",
   "keywords": [
     "tsconfig",

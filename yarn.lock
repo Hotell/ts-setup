@@ -760,6 +760,13 @@
   dependencies:
     esquery "^1.0.1"
 
+"@phenomnomnominal/tsquery@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@phenomnomnominal/tsquery/-/tsquery-3.0.0.tgz#6f2f4dbf6304ff52b12cc7a5b979f20c3794a22a"
+  integrity sha512-SW8lKitBHWJ9fAYkJ9kJivuctwNYCh3BUxLdH0+XiR1GPBiu+7qiZzh8p8jqlj1LgVC1TbvfNFroaEsmYlL8Iw==
+  dependencies:
+    esquery "^1.0.1"
+
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@samverschueren/stream-to-observable/-/stream-to-observable-0.3.0.tgz#ecdf48d532c58ea477acfcab80348424f8d0662f"
@@ -7859,6 +7866,15 @@ tslint-etc@1.2.7:
   integrity sha512-NHrnnZKJ4+fERJhLeA9KpjVdy3XRpsyUhEPPSEYAES+eg+yitxY1jC6LwH4hBotYvnR/z5o+BLPycGWcHbX6wA==
   dependencies:
     "@phenomnomnominal/tsquery" "^2.1.1"
+    tslib "^1.8.0"
+    tsutils "^3.0.0"
+
+tslint-etc@1.2.9:
+  version "1.2.9"
+  resolved "https://registry.yarnpkg.com/tslint-etc/-/tslint-etc-1.2.9.tgz#9d65752623811c9535ef866a337f0d55dc2d7b4f"
+  integrity sha512-udn24mt5/Mdg7Sw8uxU7B0dyMbGb30IA7v/F+DNH0uvXo+dLbTF7QKMhRV79q//ziy2Z1WvG9g1k6wb5lx0opw==
+  dependencies:
+    "@phenomnomnominal/tsquery" "^3.0.0"
     tslib "^1.8.0"
     tsutils "^3.0.0"
 
