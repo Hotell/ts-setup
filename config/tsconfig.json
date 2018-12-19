@@ -8,7 +8,8 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "noEmit": true,
-    "importHelpers": false
+    "importHelpers": false,
+    "suppressImplicitAnyIndexErrors": true
   },
   "include": [
     "."
