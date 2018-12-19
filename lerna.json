@@ -3,6 +3,7 @@
     "packages/*"
   ],
   "npmClient": "yarn",
+  "useWorkspaces": true,
   "command": {
     "create": {
       "homepage": "https://github.com/hotell/ts-setup",

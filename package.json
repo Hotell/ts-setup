@@ -2,6 +2,7 @@
   "name": "@martin_hotell/ts-setup",
   "version": "1.0.0",
   "private": true,
+  "workspaces": ["packages/*"],
   "description": "TsLint/TS config done right",
   "keywords": [
     "tsconfig",
@@ -9,7 +10,6 @@
     "typescript",
     "style-guides"
   ],
-  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/hotell/ts-setup"
