@@ -19,7 +19,7 @@
     "url": "git+https://github.com/Hotell/ts-setup.git"
   },
   "scripts": {
-    "build": "node ./scripts/build-tsconfig",
+    "build": "node ./scripts/build-tsconfig ./src/tsconfig.template.json",
     "test": "echo \"Error: run tests from root\" && exit 1",
     "size": "echo \"👉 no js files\""
   },
