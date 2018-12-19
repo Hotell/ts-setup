@@ -42,7 +42,7 @@
     "lint": "tslint --project tsconfig.json --format codeFrame",
     "lint:fix": "npm run lint -- --fix",
     "prerelease": "npm run build",
-    "release": "lerna version --conventional-commits --changelog-preset angular",
+    "release": "lerna version --exact --no-push --conventional-commits --changelog-preset angular",
     "postrelease": "node scripts/copy.js && npm run release:github && npm run release:npm",
     "release:github": "git push --no-verify --follow-tags origin master",
     "release:npm": "cd dist && npm publish",
