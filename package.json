@@ -5,7 +5,7 @@
   "workspaces": [
     "packages/*"
   ],
-  "description": "TsLint/TS config done right",
+  "description": "Monorepo for all things related to TsLint/TS setup",
   "keywords": [
     "tsconfig",
     "tslint",

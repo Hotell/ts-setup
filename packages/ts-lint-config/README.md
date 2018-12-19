@@ -2,6 +2,9 @@
 
 > tslint config for sane TypeScript developer 💪
 
+[![NPM version](https://img.shields.io/npm/v/@martin_hotell/ts-config.svg)](https://www.npmjs.com/package/@martin_hotell/ts-config)
+![Downloads](https://img.shields.io/npm/dm/@martin_hotell/ts-config.svg)
+
 ## Installing
 
 ```sh
