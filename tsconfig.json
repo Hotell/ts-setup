@@ -9,7 +9,6 @@
     ],
     "strict": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "react",
     "sourceMap": true,
@@ -19,13 +18,7 @@
     "resolveJsonModule": true,
     "importHelpers": true,
     "noEmit": true,
-    "composite": true,
-    "baseUrl": "./packages",
-    "paths": {
-    //   "@martin_hotell/*": [
-    //     "*/src"
-    //   ]
-    }
+    "composite": true
   },
   "references": [
     {
@@ -35,6 +28,8 @@
       "path": "./packages/ts-lint-config"
     }
   ],
-  "include": ["packages/"],
+  "include": [
+    "packages/"
+  ],
   "compileOnSave": false
 }
