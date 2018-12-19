@@ -23,7 +23,11 @@
     "url": "git+https://github.com/Hotell/ts-setup.git"
   },
   "scripts": {
-    "build": "tsc --target es2018 --outDir ./dist/esm2015 && rollup -c ../../config/rollup.config.js --environment PKG_NAME:ts-lint-config && rollup -c ../../config/rollup.config.js --environment NODE_ENV:production,PKG_NAME:ts-lint-config",
+    "build": "npm run build:esm && npm run build:bundles",
+    "build:esm": "tsc --target es2018 --outDir ./dist/esm2015",
+    "build:bundles":"npm run build:bundle && npm run build:bundle:min",
+    "build:bundle": "rollup -c ../../config/rollup.config.js --environment PKG_NAME:ts-lint-config",
+    "build:bundle:min": "rollup -c ../../config/rollup.config.js --environment NODE_ENV:production,PKG_NAME:ts-lint-config",
     "test": "echo \"Error: run tests from root\" && exit 1",
     "size": "node ../../scripts/size ./dist/bundles/index.umd.js ./dist/bundles/index.esm.js"
   },
