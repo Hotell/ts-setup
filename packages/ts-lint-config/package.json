@@ -16,7 +16,7 @@
   "sideEffects": false,
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.yarnpkg.com"
+    "registry": "https://registry.npmjs.com"
   },
   "repository": {
     "type": "git",
@@ -40,7 +40,7 @@
   "dependencies": {
     "tslint-config-prettier": "1.17.0",
     "tslint-config-standard": "8.0.1",
-    "tslint-etc": "1.2.9",
+    "tslint-etc": "1.2.12",
     "tslint-react": "3.6.0"
   }
 }
