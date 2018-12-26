@@ -70,6 +70,7 @@ declare module '@commitlint/core' {
     extends: string[]
   }
 }
+
 declare module 'sort-object-keys' {
   const sortPackageJson: <T extends {}>(
     object: T,
