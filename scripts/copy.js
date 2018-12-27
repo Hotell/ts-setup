@@ -4,24 +4,22 @@
  * **NOTE:**
  * 👉 This file should not use any 3rd party dependency
  */
-const { writeFileSync, copyFileSync, readdirSync } = require('fs')
+const { writeFileSync, copyFileSync } = require('fs')
 const { resolve } = require('path')
+const { getPackages } = require('@lerna/project')
 
 const { log } = console
 
-const { packages } = require('../lerna.json')
-
-/**
- * @typedef {typeof import('../package.json')} PkgJson
- */
+// TYPES
+/** @typedef {typeof import('../package.json')} PkgJson */
 
 const MONOREPO_ROOT = resolve(__dirname, '..')
 const PACKAGES_ROOT = resolve(MONOREPO_ROOT, 'packages')
 
 main()
 
-function main() {
-  const pkgNames = getPackages(packages)
+async function main() {
+  const pkgNames = await getMonorepoPackageNames()
 
   pkgNames.forEach((pkgName) => {
     processPackage(pkgName)
@@ -33,21 +31,16 @@ function main() {
 // =============================================================================
 
 /**
- *
- * @param {string[]} packages
+ * @returns {Promise<string[]>}
  */
-function getPackages(packages) {
-  return packages.reduce(
-    (acc, pkgName) => {
-      const isGlob = pkgName.endsWith('*')
-      const pkgNames = isGlob
-        ? readdirSync(normalizeLernaGlob(pkgName))
-        : [pkgName]
+async function getMonorepoPackageNames() {
+  const repoPackages = await getPackages()
 
-      return [...acc, ...pkgNames]
-    },
-    /** @type {string[]} */ ([])
-  )
+  const normalizedNamesArr = repoPackages
+    .map((pkg) => pkg.name)
+    .map((name) => (name.charAt(0) === '@' ? name.split('/')[1] : name))
+
+  return normalizedNamesArr
 }
 
 /**
