@@ -65,6 +65,23 @@ declare module 'babel__core' {
   interface TransformOptions {}
 }
 
+declare module '@lerna/project' {
+  export async function getPackages(): Array<{ name: string }>
+  export = Project
+  class Project {
+    constructor(cwd: string)
+    readonly config: object
+    readonly version: string
+    readonly manifest: object
+    readonly packageConfigs: string[]
+    readonly packageParentDirs: string[]
+    readonly licensePath: string | undefined
+    async getPackageLicensePaths(): string[]
+    isIndependent(): boolean
+    getPackages: typeof getPackages
+  }
+}
+
 declare module '@commitlint/core' {
   interface Config {
     extends: string[]
