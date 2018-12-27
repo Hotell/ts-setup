@@ -82,9 +82,31 @@ declare module '@lerna/project' {
   }
 }
 
+declare module '@commitlint/config-lerna-scopes'
+
 declare module '@commitlint/core' {
+  type Casing =
+    | 'lower-case' // default
+    | 'upper-case' // UPPERCASE
+    | 'camel-case' // camelCase
+    | 'kebab-case' // kebab-case
+    | 'pascal-case' // PascalCase
+    | 'sentence-case' // Sentence case
+    | 'snake-case' // snake_case
+    | 'start-case' // Start Case
+
+  type Level =
+    | 0 // disables the rule
+    | 1 // it will be considered a warning
+    | 2 // it will be considered an error
+  type Applicable = 'always' | 'never'
+  type Value = any
+  type Rule = [Level, Applicable, Value?]
+  type RuleType = Rule | ((ctx?: any) => Rule) | ((ctx?: any) => Promise<Rule>)
+
   interface Config {
-    extends: string[]
+    extends?: string[]
+    rules?: { [name: string]: RuleType }
   }
 }
 
