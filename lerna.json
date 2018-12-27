@@ -5,9 +5,19 @@
   "npmClient": "yarn",
   "useWorkspaces": true,
   "command": {
+    "init": {
+      "exact": true
+    },
     "create": {
       "homepage": "https://github.com/hotell/ts-setup",
       "license": "MIT"
+    },
+    "version": {
+      "allowBranch": [
+        "master"
+      ],
+      "message": "chore(release): publish %s",
+      "conventionalCommits": true
     },
     "publish": {
       "allowBranch": [
@@ -16,9 +26,6 @@
       "message": "chore(release): publish %s",
       "conventionalCommits": true
     }
-  },
-  "init": {
-    "exact": true
   },
   "ignoreChanges": [
     "**/__fixtures__/**",
