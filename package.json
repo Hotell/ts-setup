@@ -21,7 +21,6 @@
     "node": ">=8.5"
   },
   "scripts": {
-    "postinstall": "lerna bootstrap",
     "cleanup": "lerna exec -- shx rm -rf dist",
     "prebuild": "npm run cleanup && npm run verify",
     "build": "tsc -b && lerna run --parallel build",
