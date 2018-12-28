@@ -44,7 +44,7 @@
     "release": "lerna version --exact --no-push",
     "postrelease": "node scripts/copy && npm run release:github && npm run release:npm",
     "release:github": "git push --no-verify --follow-tags origin master",
-    "release:npm": "lerna exec --no-bail -- npm publish dist",
+    "release:npm": "lerna publish --contents dist from-package",
     "size": "lerna run size"
   },
   "config": {
