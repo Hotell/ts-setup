@@ -81,9 +81,7 @@ const rules: RulesConfig = {
 }
 
 // Apply the same rules for any JS if allowJS is gonna be used
-// @TODO following needs to be released to make this work: https://github.com/palantir/tslint/pull/3641/
-// tslint:disable-next-line:no-any
-const jsRules: RulesConfig = true as any
+const jsRules: RulesConfig | boolean = true
 
 export const config: Config = {
   extends: xtends,
