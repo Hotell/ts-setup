@@ -17,8 +17,5 @@
     "resolveJsonModule": true,
     "importHelpers": true
   },
-  "include": [
-    "./src"
-  ],
   "compileOnSave": false
 }
