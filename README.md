@@ -2,6 +2,10 @@
 
 > Shared TypeScript and TSLint configs for sane developer
 
+> **Enjoying/Using ts-setup packages ? 💪✅**
+>
+> <div align="center"><a href="https://paypal.me/martinhochel">Buy me a ☕️<br/><img src="https://img.shields.io/badge/Donate-PayPal-green.svg" alt="donate"></a></div>
+
 [![Build Status](https://travis-ci.org/hotell/ts-setup.svg?branch=master)](https://travis-ci.org/hotell/ts-setup)
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
